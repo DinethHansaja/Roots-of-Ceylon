@@ -1,0 +1,88 @@
+export const PACK_SIZES = ['100g', '250g', '500g', '1kg'];
+
+export const PRODUCTS = [
+  {
+    id: 'ceylon-black-pepper',
+    slug: 'ceylon-black-pepper',
+    artworkKey: 'pepper',
+    name: 'Ceylon Black Pepper',
+    subtitle: 'Single-Origin Malabar-Grade Peppercorns',
+    grade: 'TGSEB Reserve',
+    origin: 'Matale & Kandy Highlands, Sri Lanka',
+    harvest: 'Sun-Dried Late Harvest',
+    badge: 'High Piperine',
+    description:
+      'Hand-picked at peak maturity from mist-kissed central highland vines and sun-dried on woven reed mats for an intense, resinous heat.',
+    tastingNotes: ['Warm Cracked Oak', 'Wild Citrus Zest', 'Pungent Piperine'],
+    attributes: ['100% Natural', 'Single Estate', 'Unirradiated'],
+    variants: [
+      { size: '100g', price: { LKR: 2450, USD: 8.5 } },
+      { size: '250g', price: { LKR: 5600, USD: 19.0 } },
+      { size: '500g', price: { LKR: 10500, USD: 35.5 } },
+      { size: '1kg', price: { LKR: 19800, USD: 66.0 } },
+    ],
+  },
+  {
+    id: 'ceylon-turmeric',
+    slug: 'ceylon-turmeric',
+    artworkKey: 'turmeric',
+    name: 'Ceylon Turmeric',
+    subtitle: 'Heirloom High-Curcumin Golden Turmeric',
+    grade: '6.2% Curcumin Estate',
+    origin: 'Ampara & Monaragala Valleys, Sri Lanka',
+    harvest: 'Stone-Milled Root',
+    badge: 'Potent Curcumin',
+    description:
+      'Cultivated in mineral-rich tropical soil without synthetic inputs, slowly cured and cold-milled to preserve vibrant golden oils and earthy aroma.',
+    tastingNotes: ['Deep Saffron Earth', 'Warm Ginger', 'Velvet Mustard'],
+    attributes: ['High Curcumin', 'Zero Fillers', 'Handcrafted'],
+    variants: [
+      { size: '100g', price: { LKR: 2150, USD: 7.5 } },
+      { size: '250g', price: { LKR: 4950, USD: 16.5 } },
+      { size: '500g', price: { LKR: 9200, USD: 31.0 } },
+      { size: '1kg', price: { LKR: 17400, USD: 58.0 } },
+    ],
+  },
+  {
+    id: 'true-ceylon-cinnamon',
+    slug: 'true-ceylon-cinnamon',
+    artworkKey: 'cinnamon',
+    name: 'True Ceylon Cinnamon',
+    subtitle: 'Alba-Grade Hand-Rolled Cinnamon Quills',
+    grade: 'Alba Crown Grade',
+    origin: 'Galle & Matara Coastal Belt, Sri Lanka',
+    harvest: 'Artisan Inner-Bark',
+    badge: 'Signature Export',
+    description:
+      'The world’s rarest Cinnamomum verum, peeled by master artisans at dawn and hand-rolled into delicate paper-thin Alba quills with ultra-low coumarin.',
+    tastingNotes: ['Delicate Honeyed Spice', 'Orange Blossom', 'Sweet Clove'],
+    attributes: ['Alba Grade', 'Ultra-Low Coumarin', 'Hand-Rolled'],
+    variants: [
+      { size: '100g', price: { LKR: 3900, USD: 13.5 } },
+      { size: '250g', price: { LKR: 8900, USD: 30.0 } },
+      { size: '500g', price: { LKR: 16800, USD: 56.5 } },
+      { size: '1kg', price: { LKR: 31500, USD: 105.0 } },
+    ],
+  },
+  {
+    id: 'pure-ceylon-tea',
+    slug: 'pure-ceylon-tea',
+    artworkKey: 'tea',
+    name: 'Pure Ceylon Tea',
+    subtitle: 'High-Grown Orthodox Loose-Leaf Black Tea',
+    grade: 'Nuwara Eliya BOPF / OP1',
+    origin: 'Nuwara Eliya Estates (1,900m), Sri Lanka',
+    harvest: 'First-Flush Orthodox',
+    badge: 'Lion Certified',
+    description:
+      'Plucked as two leaves and a bud from high-altitude mist gardens, withered and rolled using traditional orthodox methods for a brisk,amber-gold cup.',
+    tastingNotes: ['Brisk Bergamot', 'Toasted Almond', 'Crisp Floral Finish'],
+    attributes: ['High-Grown', 'Whole Leaf', 'Ozone-Friendly'],
+    variants: [
+      { size: '100g', price: { LKR: 2850, USD: 9.8 } },
+      { size: '250g', price: { LKR: 6400, USD: 21.5 } },
+      { size: '500g', price: { LKR: 11900, USD: 40.0 } },
+      { size: '1kg', price: { LKR: 22400, USD: 75.0 } },
+    ],
+  },
+];
