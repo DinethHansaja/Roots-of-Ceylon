@@ -22,7 +22,7 @@ export function HeroSection() {
             <span>Single-Origin Sri Lankan Reserve</span>
           </div>
 
-          <div className="mb-6 flex justify-center">
+          <div className="mb-8 flex justify-center">
             <BrandLogo showText={false} size="lg" />
           </div>
 
