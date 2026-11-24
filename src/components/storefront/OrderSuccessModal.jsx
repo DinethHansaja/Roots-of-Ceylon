@@ -16,7 +16,8 @@ export function OrderSuccessModal() {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       <div
-        className="fixed inset-0 bg-black/75 backdrop-blur-sm"
+        className="fixed inset-0 backdrop-blur-sm"
+        style={{ backgroundColor: 'var(--overlay-backdrop)' }}
         onClick={() => setCompletedOrder(null)}
         aria-hidden="true"
       />
@@ -24,35 +25,35 @@ export function OrderSuccessModal() {
       <div
         role="dialog"
         aria-modal="true"
-        className="relative z-10 w-full max-w-lg rounded-2xl border border-[#E3B025]/35 bg-[#1A1919] p-8 text-center shadow-2xl"
+        className="relative z-10 w-full max-w-lg rounded-2xl border border-[var(--border-gold-strong)] bg-[var(--bg-secondary)] p-8 text-center shadow-2xl transition-colors duration-300"
       >
-        <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full border border-emerald-500/40 bg-emerald-500/15 text-emerald-400">
+        <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full border border-emerald-500/40 bg-emerald-500/15 text-emerald-500">
           <CheckCircle2 className="w-8 h-8" />
         </div>
 
-        <p className="text-[11px] font-semibold tracking-[0.24em] text-[#E3B025] uppercase">
+        <p className="text-[11px] font-semibold tracking-[0.24em] text-[var(--accent-gold)] uppercase">
           Order Confirmed
         </p>
-        <h2 className="mt-2 font-serif text-3xl font-semibold text-[#F5F2EB]">
+        <h2 className="mt-2 font-serif text-3xl font-semibold text-[var(--text-primary)]">
           Thank You, {completedOrder.customer.name}
         </h2>
-        <p className="mt-2 text-sm text-[#B8B2A6]">
+        <p className="mt-2 text-sm text-[var(--text-secondary)]">
           Your Roots of Ceylon reserve order has been logged for export dispatch to{' '}
-          <span className="text-[#F5F2EB]">{completedOrder.customer.country}</span>.
+          <span className="text-[var(--text-primary)] font-medium">{completedOrder.customer.country}</span>.
         </p>
 
-        <div className="mt-6 rounded-xl border border-[#E3B025]/20 bg-[#242323] p-4 text-left">
-          <div className="flex items-center justify-between text-xs text-[#B8B2A6]">
+        <div className="mt-6 rounded-xl border border-[var(--border-gold)] bg-[var(--bg-card)] p-4 text-left transition-colors duration-300">
+          <div className="flex items-center justify-between text-xs text-[var(--text-secondary)]">
             <span>Order Reference</span>
-            <span className="font-mono font-semibold text-[#E3B025]">{completedOrder.id}</span>
+            <span className="font-mono font-semibold text-[var(--accent-gold)]">{completedOrder.id}</span>
           </div>
-          <div className="mt-2 flex items-center justify-between text-xs text-[#B8B2A6]">
+          <div className="mt-2 flex items-center justify-between text-xs text-[var(--text-secondary)]">
             <span>Status</span>
-            <span className="font-semibold text-amber-300">{completedOrder.status}</span>
+            <span className="font-semibold text-amber-600 dark:text-amber-300">{completedOrder.status}</span>
           </div>
-          <div className="mt-3 border-t border-[#E3B025]/15 pt-3 flex items-center justify-between">
-            <span className="text-xs font-medium text-[#F5F2EB]">Total Value</span>
-            <span className="font-serif text-xl font-bold text-[#E3B025]">
+          <div className="mt-3 border-t border-[var(--border-subtle)] pt-3 flex items-center justify-between">
+            <span className="text-xs font-medium text-[var(--text-primary)]">Total Value</span>
+            <span className="font-serif text-xl font-bold text-[var(--accent-gold)]">
               {formatCurrency(completedOrder.total[currency], currency)}
             </span>
           </div>
@@ -62,15 +63,15 @@ export function OrderSuccessModal() {
           <button
             type="button"
             onClick={() => setCompletedOrder(null)}
-            className="inline-flex items-center justify-center gap-2 rounded-full border border-[#E3B025]/35 bg-[#242323] px-6 py-2.5 text-xs font-semibold tracking-wider text-[#F5F2EB] uppercase hover:border-[#E3B025] cursor-pointer"
+            className="inline-flex items-center justify-center gap-2 rounded-full border border-[var(--border-gold)] bg-[var(--bg-card)] px-6 py-2.5 text-xs font-semibold tracking-wider text-[var(--text-primary)] uppercase hover:border-[var(--accent-gold)] cursor-pointer"
           >
-            <ShoppingBag className="w-4 h-4 text-[#E3B025]" />
+            <ShoppingBag className="w-4 h-4 text-[var(--accent-gold)]" />
             <span>Continue Shopping</span>
           </button>
           <button
             type="button"
             onClick={handleViewDashboard}
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-[#E3B025] px-6 py-2.5 text-xs font-bold tracking-wider text-[#1A1919] uppercase hover:bg-[#F2CC59] cursor-pointer"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-[var(--accent-gold)] px-6 py-2.5 text-xs font-bold tracking-wider text-[var(--accent-gold-contrast)] uppercase hover:bg-[var(--accent-gold-hover)] cursor-pointer"
           >
             <LayoutDashboard className="w-4 h-4" />
             <span>Track in Dashboard</span>

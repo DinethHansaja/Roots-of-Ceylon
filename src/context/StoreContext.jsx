@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useMemo, useCallback } from 'react';
+import React, { createContext, useContext, useState, useMemo, useCallback, useEffect } from 'react';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import { orderService } from '../services/orderService';
 import { generateOrderId } from '../utils/generateOrderId';
@@ -6,6 +6,7 @@ import { generateOrderId } from '../utils/generateOrderId';
 const StoreContext = createContext(null);
 
 export function StoreProvider({ children }) {
+  const [theme, setTheme] = useLocalStorage('roc_theme', 'dark');
   const [currency, setCurrency] = useLocalStorage('roc_currency_v1', 'USD');
   const [cart, setCart] = useLocalStorage('roc_cart_v1', []);
   const [activeView, setActiveView] = useState('storefront'); // 'storefront' | 'dashboard'
@@ -15,6 +16,17 @@ export function StoreProvider({ children }) {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
   const [completedOrder, setCompletedOrder] = useState(null);
+
+  useEffect(() => {
+    const root = document.documentElement;
+    const resolvedTheme = theme === 'light' ? 'light' : 'dark';
+    root.setAttribute('data-theme', resolvedTheme);
+    root.classList.toggle('dark', resolvedTheme === 'dark');
+  }, [theme]);
+
+  const toggleTheme = useCallback(() => {
+    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
+  }, [setTheme]);
 
   const toggleCurrency = useCallback(() => {
     setCurrency((prev) => (prev === 'USD' ? 'LKR' : 'USD'));
@@ -137,6 +149,9 @@ export function StoreProvider({ children }) {
 
   const value = useMemo(
     () => ({
+      theme,
+      setTheme,
+      toggleTheme,
       currency,
       setCurrency,
       toggleCurrency,
@@ -160,6 +175,9 @@ export function StoreProvider({ children }) {
       updateOrderStatus,
     }),
     [
+      theme,
+      setTheme,
+      toggleTheme,
       currency,
       setCurrency,
       toggleCurrency,

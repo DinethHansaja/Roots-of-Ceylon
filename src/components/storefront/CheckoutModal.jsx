@@ -58,10 +58,14 @@ export function CheckoutModal() {
     setErrors({});
   };
 
+  const inputClass =
+    'mt-1.5 w-full rounded-xl border border-[var(--border-gold)] bg-[var(--bg-card)] px-4 py-2.5 text-sm text-[var(--text-primary)] placeholder-[var(--text-secondary)]/55 focus:border-[var(--accent-gold)] focus:outline-none transition-colors duration-300';
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       <div
-        className="fixed inset-0 bg-black/75 backdrop-blur-sm"
+        className="fixed inset-0 backdrop-blur-sm"
+        style={{ backgroundColor: 'var(--overlay-backdrop)' }}
         onClick={() => setIsCheckoutOpen(false)}
         aria-hidden="true"
       />
@@ -70,14 +74,14 @@ export function CheckoutModal() {
         role="dialog"
         aria-modal="true"
         aria-labelledby="checkout-title"
-        className="relative z-10 max-h-[92vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-[#E3B025]/30 bg-[#1A1919] p-6 sm:p-8 shadow-2xl"
+        className="relative z-10 max-h-[92vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-[var(--border-gold-strong)] bg-[var(--bg-secondary)] p-6 sm:p-8 shadow-2xl transition-colors duration-300"
       >
-        <div className="flex items-start justify-between border-b border-[#E3B025]/20 pb-4">
+        <div className="flex items-start justify-between border-b border-[var(--border-gold)] pb-4">
           <div>
-            <p className="text-[11px] font-semibold tracking-[0.22em] text-[#E3B025] uppercase">
+            <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--accent-gold)] uppercase">
               Direct Export Dispatch
             </p>
-            <h2 id="checkout-title" className="mt-1 font-serif text-3xl font-semibold text-[#F5F2EB]">
+            <h2 id="checkout-title" className="mt-1 font-serif text-3xl font-semibold text-[var(--text-primary)]">
               Complete Your Order
             </h2>
           </div>
@@ -85,7 +89,7 @@ export function CheckoutModal() {
             type="button"
             onClick={() => setIsCheckoutOpen(false)}
             aria-label="Close checkout"
-            className="rounded-full p-1.5 text-[#B8B2A6] hover:bg-[#242323] hover:text-[#F5F2EB] cursor-pointer"
+            className="rounded-full p-1.5 text-[var(--text-secondary)] hover:bg-[var(--bg-card)] hover:text-[var(--text-primary)] cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -94,7 +98,7 @@ export function CheckoutModal() {
         <form onSubmit={handleSubmit} noValidate className="mt-6 space-y-5">
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
-              <label className="block text-xs font-medium tracking-wider text-[#B8B2A6] uppercase">
+              <label className="block text-xs font-medium tracking-wider text-[var(--text-secondary)] uppercase">
                 Customer Name *
               </label>
               <input
@@ -102,13 +106,13 @@ export function CheckoutModal() {
                 value={form.name}
                 onChange={handleChange('name')}
                 placeholder="e.g. Amara Jayasinghe"
-                className="mt-1.5 w-full rounded-xl border border-[#E3B025]/25 bg-[#242323] px-4 py-2.5 text-sm text-[#F5F2EB] placeholder-[#B8B2A6]/45 focus:border-[#E3B025] focus:outline-none"
+                className={inputClass}
               />
-              {errors.name && <p className="mt-1 text-xs text-rose-400">{errors.name}</p>}
+              {errors.name && <p className="mt-1 text-xs text-rose-500">{errors.name}</p>}
             </div>
 
             <div>
-              <label className="block text-xs font-medium tracking-wider text-[#B8B2A6] uppercase">
+              <label className="block text-xs font-medium tracking-wider text-[var(--text-secondary)] uppercase">
                 Email Address *
               </label>
               <input
@@ -116,15 +120,15 @@ export function CheckoutModal() {
                 value={form.email}
                 onChange={handleChange('email')}
                 placeholder="you@domain.com"
-                className="mt-1.5 w-full rounded-xl border border-[#E3B025]/25 bg-[#242323] px-4 py-2.5 text-sm text-[#F5F2EB] placeholder-[#B8B2A6]/45 focus:border-[#E3B025] focus:outline-none"
+                className={inputClass}
               />
-              {errors.email && <p className="mt-1 text-xs text-rose-400">{errors.email}</p>}
+              {errors.email && <p className="mt-1 text-xs text-rose-500">{errors.email}</p>}
             </div>
           </div>
 
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
-              <label className="block text-xs font-medium tracking-wider text-[#B8B2A6] uppercase">
+              <label className="block text-xs font-medium tracking-wider text-[var(--text-secondary)] uppercase">
                 Phone / WhatsApp *
               </label>
               <input
@@ -132,13 +136,13 @@ export function CheckoutModal() {
                 value={form.phone}
                 onChange={handleChange('phone')}
                 placeholder="+94 77 123 4567"
-                className="mt-1.5 w-full rounded-xl border border-[#E3B025]/25 bg-[#242323] px-4 py-2.5 text-sm text-[#F5F2EB] placeholder-[#B8B2A6]/45 focus:border-[#E3B025] focus:outline-none"
+                className={inputClass}
               />
-              {errors.phone && <p className="mt-1 text-xs text-rose-400">{errors.phone}</p>}
+              {errors.phone && <p className="mt-1 text-xs text-rose-500">{errors.phone}</p>}
             </div>
 
             <div>
-              <label className="block text-xs font-medium tracking-wider text-[#B8B2A6] uppercase">
+              <label className="block text-xs font-medium tracking-wider text-[var(--text-secondary)] uppercase">
                 Destination Country *
               </label>
               <input
@@ -146,14 +150,14 @@ export function CheckoutModal() {
                 value={form.country}
                 onChange={handleChange('country')}
                 placeholder="United Kingdom"
-                className="mt-1.5 w-full rounded-xl border border-[#E3B025]/25 bg-[#242323] px-4 py-2.5 text-sm text-[#F5F2EB] placeholder-[#B8B2A6]/45 focus:border-[#E3B025] focus:outline-none"
+                className={inputClass}
               />
-              {errors.country && <p className="mt-1 text-xs text-rose-400">{errors.country}</p>}
+              {errors.country && <p className="mt-1 text-xs text-rose-500">{errors.country}</p>}
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-medium tracking-wider text-[#B8B2A6] uppercase">
+            <label className="block text-xs font-medium tracking-wider text-[var(--text-secondary)] uppercase">
               Shipping Address *
             </label>
             <textarea
@@ -161,13 +165,13 @@ export function CheckoutModal() {
               value={form.address}
               onChange={handleChange('address')}
               placeholder="Street address, suite/apt, city, postal code"
-              className="mt-1.5 w-full rounded-xl border border-[#E3B025]/25 bg-[#242323] px-4 py-2.5 text-sm text-[#F5F2EB] placeholder-[#B8B2A6]/45 focus:border-[#E3B025] focus:outline-none"
+              className={inputClass}
             />
-            {errors.address && <p className="mt-1 text-xs text-rose-400">{errors.address}</p>}
+            {errors.address && <p className="mt-1 text-xs text-rose-500">{errors.address}</p>}
           </div>
 
           <div>
-            <label className="block text-xs font-medium tracking-wider text-[#B8B2A6] uppercase">
+            <label className="block text-xs font-medium tracking-wider text-[var(--text-secondary)] uppercase">
               Export / Gift Notes (Optional)
             </label>
             <textarea
@@ -175,32 +179,32 @@ export function CheckoutModal() {
               value={form.notes}
               onChange={handleChange('notes')}
               placeholder="Custom packaging requests, phytosanitary paperwork, or delivery window..."
-              className="mt-1.5 w-full rounded-xl border border-[#E3B025]/25 bg-[#242323] px-4 py-2.5 text-sm text-[#F5F2EB] placeholder-[#B8B2A6]/45 focus:border-[#E3B025] focus:outline-none"
+              className={inputClass}
             />
           </div>
 
           {/* Order Summary Strip */}
-          <div className="rounded-xl border border-[#E3B025]/20 bg-[#242323]/80 p-4">
-            <div className="flex items-center justify-between text-xs text-[#B8B2A6]">
+          <div className="rounded-xl border border-[var(--border-gold)] bg-[var(--bg-card)] p-4 transition-colors duration-300">
+            <div className="flex items-center justify-between text-xs text-[var(--text-secondary)]">
               <span>Items in Bag ({cart.reduce((s, i) => s + i.quantity, 0)})</span>
               <span>Active Currency: {currency}</span>
             </div>
             <div className="mt-2 flex items-center justify-between">
-              <span className="text-sm font-semibold text-[#F5F2EB]">Order Total</span>
-              <span className="font-serif text-2xl font-bold text-[#E3B025]">
+              <span className="text-sm font-semibold text-[var(--text-primary)]">Order Total</span>
+              <span className="font-serif text-2xl font-bold text-[var(--accent-gold)]">
                 {formatCurrency(cartTotals[currency], currency)}
               </span>
             </div>
           </div>
 
           <div className="flex flex-col-reverse items-center justify-between gap-3 pt-2 sm:flex-row">
-            <div className="flex items-center gap-2 text-xs text-[#B8B2A6]">
-              <ShieldCheck className="w-4 h-4 text-[#E3B025]" />
+            <div className="flex items-center gap-2 text-xs text-[var(--text-secondary)]">
+              <ShieldCheck className="w-4 h-4 text-[var(--accent-gold)]" />
               <span>Export invoice &amp; tracking confirmed via email/WhatsApp</span>
             </div>
             <button
               type="submit"
-              className="w-full sm:w-auto rounded-full bg-[#E3B025] px-8 py-3 text-xs font-bold tracking-[0.18em] text-[#1A1919] uppercase transition-all hover:bg-[#F2CC59] cursor-pointer"
+              className="w-full sm:w-auto rounded-full bg-[var(--accent-gold)] px-8 py-3 text-xs font-bold tracking-[0.18em] text-[var(--accent-gold-contrast)] uppercase transition-all hover:bg-[var(--accent-gold-hover)] cursor-pointer"
             >
               Confirm Export Order
             </button>

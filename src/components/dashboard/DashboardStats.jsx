@@ -45,18 +45,20 @@ export function DashboardStats({ orders }) {
         return (
           <div
             key={stat.label}
-            className="luxury-card rounded-2xl p-5 transition-all hover:border-[#E3B025]/45"
+            className="luxury-card gold-border-hover rounded-2xl p-5"
           >
             <div className="flex items-center justify-between">
-              <span className="text-xs font-medium tracking-wider text-[#B8B2A6] uppercase">
+              <span className="text-xs font-medium tracking-wider text-[var(--text-secondary)] uppercase">
                 {stat.label}
               </span>
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-[#E3B025]/25 bg-[#E3B025]/10 text-[#E3B025]">
+              <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-[var(--border-gold)] bg-[var(--accent-gold)]/12 text-[var(--accent-gold)]">
                 <Icon className="w-4 h-4" />
               </div>
             </div>
-            <p className="mt-3 font-serif text-3xl font-bold text-[#F5F2EB]">{stat.value}</p>
-            <p className="mt-1 text-[11px] text-[#B8B2A6]">{stat.subtext}</p>
+            <p className="mt-3 font-serif text-3xl font-bold text-[var(--text-primary)]">
+              {stat.value}
+            </p>
+            <p className="mt-1 text-[11px] text-[var(--text-secondary)]">{stat.subtext}</p>
           </div>
         );
       })}

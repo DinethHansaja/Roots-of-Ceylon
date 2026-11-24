@@ -37,16 +37,19 @@ const VALUES = [
 
 export function BrandStory() {
   return (
-    <section id="heritage" className="border-b border-[#E3B025]/15 bg-[#242323]/40 py-20">
+    <section
+      id="heritage"
+      className="border-b border-[var(--border-subtle)] bg-[var(--bg-primary)] py-20 transition-colors duration-300"
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-xs font-semibold tracking-[0.24em] text-[#E3B025] uppercase">
+          <p className="text-xs font-semibold tracking-[0.24em] text-[var(--accent-gold)] uppercase">
             The Ceylon Promise
           </p>
-          <h2 className="mt-3 font-serif text-3xl font-semibold text-[#F5F2EB] sm:text-4xl">
+          <h2 className="mt-3 font-serif text-3xl font-semibold text-[var(--text-primary)] sm:text-4xl">
             From Mist-Kissed Estates to Your Table
           </h2>
-          <p className="mt-4 text-sm leading-relaxed text-[#B8B2A6] sm:text-base">
+          <p className="mt-4 text-sm leading-relaxed text-[var(--text-secondary)] sm:text-base">
             For centuries, merchants sailed the Indian Ocean seeking the true spices of Serendib.
             Roots of Ceylon preserves that heritage—partnering directly with family estates to
             deliver unblended, small-batch harvests.
@@ -60,13 +63,17 @@ export function BrandStory() {
             return (
               <div
                 key={item.title}
-                className="luxury-card gold-border-hover rounded-2xl p-6 transition-all duration-300"
+                className="luxury-card gold-border-hover rounded-2xl p-6"
               >
-                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[#E3B025]/30 bg-[#E3B025]/10 text-[#E3B025]">
+                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[var(--border-gold)] bg-[var(--accent-gold)]/12 text-[var(--accent-gold)]">
                   <Icon className="w-5 h-5" />
                 </div>
-                <h3 className="font-serif text-xl font-semibold text-[#F5F2EB]">{item.title}</h3>
-                <p className="mt-2 text-xs leading-relaxed text-[#B8B2A6]">{item.description}</p>
+                <h3 className="font-serif text-xl font-semibold text-[var(--text-primary)]">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-xs leading-relaxed text-[var(--text-secondary)]">
+                  {item.description}
+                </p>
               </div>
             );
           })}

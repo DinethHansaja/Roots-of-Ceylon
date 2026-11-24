@@ -34,19 +34,20 @@ export function AdminDashboardPage() {
   );
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 space-y-8">
+    <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 space-y-8 transition-colors duration-300">
       {/* Header */}
-      <div className="flex flex-col justify-between gap-4 border-b border-[#E3B025]/20 pb-6 md:flex-row md:items-end">
+      <div className="flex flex-col justify-between gap-4 border-b border-[var(--border-gold)] pb-6 md:flex-row md:items-end">
         <div>
-          <p className="text-xs font-semibold tracking-[0.24em] text-[#E3B025] uppercase">
+          <p className="text-xs font-semibold tracking-[0.24em] text-[var(--accent-gold)] uppercase">
             Export Operations Console
           </p>
-          <h1 className="mt-2 font-serif text-3xl font-semibold text-[#F5F2EB] sm:text-4xl">
+          <h1 className="mt-2 font-serif text-3xl font-semibold text-[var(--text-primary)] sm:text-4xl">
             Order Management Dashboard
           </h1>
         </div>
-        <p className="text-xs text-[#B8B2A6]">
-          Real-time dispatch tracking synced with <code className="text-[#E3B025]">orderService</code>
+        <p className="text-xs text-[var(--text-secondary)]">
+          Real-time dispatch tracking synced with{' '}
+          <code className="text-[var(--accent-gold)] font-mono">orderService</code>
         </p>
       </div>
 
@@ -56,13 +57,13 @@ export function AdminDashboardPage() {
       {/* Search & Status Filter Toolbar */}
       <div className="flex flex-col justify-between gap-4 lg:flex-row lg:items-center">
         <div className="relative w-full max-w-md">
-          <Search className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[#B8B2A6]" />
+          <Search className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[var(--text-secondary)]" />
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search by Order ID, Customer Name, or Country..."
-            className="w-full rounded-full border border-[#E3B025]/25 bg-[#242323] py-2.5 pl-10 pr-4 text-sm text-[#F5F2EB] placeholder-[#B8B2A6]/60 focus:border-[#E3B025] focus:outline-none"
+            className="w-full rounded-full border border-[var(--border-gold)] bg-[var(--bg-card)] py-2.5 pl-10 pr-4 text-sm text-[var(--text-primary)] placeholder-[var(--text-secondary)]/65 focus:border-[var(--accent-gold)] focus:outline-none transition-colors duration-300"
           />
         </div>
 
@@ -76,8 +77,8 @@ export function AdminDashboardPage() {
                 onClick={() => setStatusFilter(status)}
                 className={`rounded-full border px-4 py-1.5 text-xs font-semibold tracking-wider transition-all cursor-pointer ${
                   isActive
-                    ? 'border-[#E3B025] bg-[#E3B025] text-[#1A1919]'
-                    : 'border-[#E3B025]/20 bg-[#242323] text-[#F5F2EB]/75 hover:border-[#E3B025]/50 hover:text-[#F5F2EB]'
+                    ? 'border-[var(--accent-gold)] bg-[var(--accent-gold)] text-[var(--accent-gold-contrast)]'
+                    : 'border-[var(--border-gold)] bg-[var(--bg-card)] text-[var(--text-secondary)] hover:border-[var(--border-gold-strong)] hover:text-[var(--text-primary)]'
                 }`}
               >
                 {status}

@@ -6,7 +6,7 @@ export function CurrencySwitcher({ className = '' }) {
 
   return (
     <div
-      className={`inline-flex items-center rounded-full border border-[#E3B025]/25 bg-[#1A1919] p-0.5 ${className}`}
+      className={`inline-flex items-center rounded-full border border-[var(--border-gold)] bg-[var(--bg-secondary)] p-0.5 transition-colors duration-300 ${className}`}
       role="group"
       aria-label="Currency selector"
     >
@@ -17,10 +17,10 @@ export function CurrencySwitcher({ className = '' }) {
             key={code}
             type="button"
             onClick={() => setCurrency(code)}
-            className={`px-3 py-1 rounded-full text-xs font-semibold tracking-wider transition-all cursor-pointer ${
+            className={`px-2.5 sm:px-3 py-1 rounded-full text-xs font-semibold tracking-wider transition-all cursor-pointer ${
               isActive
-                ? 'bg-[#E3B025] text-[#1A1919] shadow-sm'
-                : 'text-[#F5F2EB]/70 hover:text-[#F5F2EB]'
+                ? 'bg-[var(--accent-gold)] text-[var(--accent-gold-contrast)] shadow-sm'
+                : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
             }`}
           >
             {code}
