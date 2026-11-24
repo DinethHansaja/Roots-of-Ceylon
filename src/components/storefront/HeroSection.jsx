@@ -15,14 +15,14 @@ export function HeroSection() {
         aria-hidden="true"
       />
 
-      <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
+      <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[var(--border-gold)] bg-[var(--bg-card)] px-4 py-1.5 text-xs font-medium tracking-[0.22em] text-[var(--accent-gold)] uppercase transition-colors duration-300">
+          <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-[var(--border-gold)] bg-[var(--bg-card)] px-4 py-1.5 text-xs font-medium tracking-[0.22em] text-[var(--accent-gold)] uppercase transition-colors duration-300">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Single-Origin Sri Lankan Reserve</span>
           </div>
 
-          <div className="mb-8 flex justify-center">
+          <div className="mb-10 flex justify-center">
             <BrandLogo showText={false} size="lg" />
           </div>
 

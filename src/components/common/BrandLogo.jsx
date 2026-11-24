@@ -3,7 +3,7 @@ import React from 'react';
 const SIZE_CLASSES = {
   sm: 'h-10 w-auto',
   md: 'h-12 w-auto',
-  lg: 'h-52 sm:h-64 w-auto',
+  lg: 'h-56 sm:h-72 md:h-80 w-auto',
 };
 
 export function BrandLogo({ showText = true, size = 'md', className = '' }) {

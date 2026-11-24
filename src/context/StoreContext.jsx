@@ -55,6 +55,7 @@ export function StoreProvider({ children }) {
             name: product.name,
             subtitle: product.subtitle,
             artworkKey: product.artworkKey,
+            image: product.image,
             size: selectedVariant.size,
             unitPrice: selectedVariant.price,
             quantity,

@@ -77,12 +77,12 @@
 }
 
 .brand-logo-img {
-  filter: drop-shadow(0 2px 12px rgba(227, 176, 37, 0.16));
+  filter: sepia(0.38) saturate(1.55) brightness(0.92) contrast(1.1) hue-rotate(-7deg) drop-shadow(0 2px 14px rgba(212, 175, 55, 0.24));
   transition: filter 300ms ease;
 }
 
 [data-theme="light"] .brand-logo-img {
-  filter: brightness(0.82) contrast(1.08) saturate(1.15) drop-shadow(0 2px 10px rgba(200, 150, 30, 0.18));
+  filter: brightness(0) saturate(100%) invert(11%) sepia(6%) saturate(260%) hue-rotate(340deg) contrast(95%);
 }
 
 /* Custom subtle scrollbars */

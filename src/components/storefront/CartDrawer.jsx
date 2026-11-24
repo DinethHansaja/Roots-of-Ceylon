@@ -78,8 +78,16 @@ export function CartDrawer() {
                   key={`${item.productId}-${item.size}`}
                   className="flex gap-4 rounded-xl border border-[var(--border-gold)] bg-[var(--bg-card)] p-4 transition-colors duration-300"
                 >
-                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-lg bg-[var(--bg-secondary)] border border-[var(--border-subtle)]">
-                    <SpiceArtwork spiceKey={item.artworkKey} className="h-14 w-14" />
+                  <div className="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-[var(--bg-secondary)] border border-[var(--border-subtle)]">
+                    {item.image ? (
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        className="h-full w-full object-cover"
+                      />
+                    ) : (
+                      <SpiceArtwork spiceKey={item.artworkKey} className="h-14 w-14" />
+                    )}
                   </div>
 
                   <div className="flex flex-1 flex-col justify-between">

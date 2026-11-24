@@ -9,6 +9,7 @@ export function ProductCard({ product }) {
   const { currency, addToCart } = useStore();
   const [selectedSize, setSelectedSize] = useState(product.variants[0].size);
   const [justAdded, setJustAdded] = useState(false);
+  const [imgError, setImgError] = useState(false);
 
   const activeVariant =
     product.variants.find((v) => v.size === selectedSize) || product.variants[0];
@@ -30,11 +31,21 @@ export function ProductCard({ product }) {
           <Badge variant="gold">{product.badge}</Badge>
         </div>
 
-        {/* Artwork Medallion */}
-        <div className="my-6 flex items-center justify-center">
-          <div className="relative flex h-36 w-36 items-center justify-center rounded-full bg-[var(--bg-secondary)] transition-transform duration-500 group-hover:scale-105">
-            <SpiceArtwork spiceKey={product.artworkKey} className="h-32 w-32" />
-          </div>
+        {/* Luxury Product Photography */}
+        <div className="my-5 overflow-hidden rounded-xl border border-[var(--border-gold)] bg-[var(--bg-secondary)] aspect-[4/3]">
+          {product.image && !imgError ? (
+            <img
+              src={product.image}
+              alt={`${product.name} — ${product.subtitle}`}
+              onError={() => setImgError(true)}
+              loading="lazy"
+              className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+            />
+          ) : (
+            <div className="flex h-full w-full items-center justify-center">
+              <SpiceArtwork spiceKey={product.artworkKey} className="h-32 w-32" />
+            </div>
+          )}
         </div>
 
         {/* Title & Subtitle */}
